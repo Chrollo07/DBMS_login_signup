@@ -1,3 +1,4 @@
+
 function flip(cardId) {
     var flipCard = document.getElementById(cardId);
     flipCard.style.transform = flipCard.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
@@ -8,7 +9,9 @@ function validateLogin() {
     var password = form.elements['password'];
 
     if (username.value.trim() === '' || password.value.trim() === '') {
-        alert('Please fill in all fields.');
+        console.log('empty');
+        alert('Please fill in all empty fields.');
+
     } else {
         form.submit();
     }
@@ -49,4 +52,4 @@ function validateSignup(){
     }else{
         form.submit();
     }
-    }
+}

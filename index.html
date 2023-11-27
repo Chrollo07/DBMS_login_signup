@@ -4,11 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
-    <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+    <script>
+        function clickbtn(){
+            document.getElementById('signup-btn').click();
+            }
+        const urlParams = new URLSearchParams(window.location.search);
+        const registrationStatus = urlParams.get('registration');
+        const loginStatus = urlParams.get('login');
+        let warnings = [];
+
+        function showAlert(message) {
+            alert(message);
+            exit();
+        }
+
+        if (registrationStatus === 'success') showAlert('Registration successful, you can now log in!');
+        else if (loginStatus) {
+            if (loginStatus === 'username') showAlert("Login failed. Username doesn't exist.");
+            else if (loginStatus === 'password') showAlert("Login failed. Incorrect password, please try again.");
+            else if (loginStatus === 'nomatch') showAlert("Login failed. Password doesn't match.");
+        }
+
+        if (registrationStatus) {
+            if (registrationStatus.includes("email")){
+                warnings.push('Email address already exists.');
+            }
+            if (registrationStatus.includes("contact_num")){
+                warnings.push('Contact number already in use.');
+            }
+            if (registrationStatus.includes("username")){
+                warnings.push('Username already exists.');
+            }
+            if (warnings.length > 0) {
+                alert(warnings.join("\n"));
+                document.addEventListener("DOMContentLoaded", clickbtn);
+            }
+        }
+
+    </script>
     <div class="flipcard" id="flipcard">
         <div class="login-box">
             <h2>Log In</h2>
@@ -52,6 +90,30 @@
                 </div>
             </form>
         </div>
+        <!-- The Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Modal Heading</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
         
         <div class="login-box back">
             <h2>Signup</h2>
@@ -162,7 +224,7 @@
                         </a>
                     </div>
                     <div class="col-md-3 mt-2 text-center">
-                        <a href="#" onclick="validateSignup();">
+                        <a href="javascript:void(0);" onclick="validateSignup();" name="register">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -182,7 +244,6 @@
             </form>
         </div>
     </div>
-
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script></body>
