@@ -120,15 +120,6 @@
     <title>Document</title>
 </head>
 <body>
-<script>
-    // Disable back button
-    history.pushState(null, null, document.URL);
-    window.addEventListener('popstate', function () {
-        history.pushState(null, null, document.URL);
-        // Redirect to the login page
-        window.location.replace("index.html");
-    });
-</script>
 
 <?php
     session_start();

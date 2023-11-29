@@ -224,7 +224,7 @@ html {
       margin-top: 30px;
     }
     .login-box.back{
-      overflow-y: auto; /* Add a vertical scrollbar if needed */
+      overflow-y: auto; 
       max-height: 500px;
       width: 100%;
     }
