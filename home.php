@@ -96,6 +96,7 @@
             padding: 20px 0px;
             color: #03e9f4;
             font-size: 1.4em;
+            font-weight: 700;
             
         }
         #logout:hover{
@@ -107,11 +108,28 @@
                         0 0 50px #03e9f4,
                         0 0 100px #03e9f4;
         }
+        
+         @media only screen and (max-width: 800px){
+            .card{
+                margin: 20px auto;
+            }
+           
+         }
     </style>
     <link href="style.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+<script>
+    // Disable back button
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+        // Redirect to the login page
+        window.location.replace("index.html");
+    });
+</script>
+
 <?php
     session_start();
     if (!isset($_SESSION["authenticated"]) || $_SESSION["authenticated"] !== true) {
@@ -123,7 +141,7 @@
 ?>
     <nav class="navbar navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="#" id="title">MEMBERS PAGE</a>
+        <a class="navbar-brand" href="#" id="title">GROUP MEMBERS</a>
 
             <ul class="navbar-nav">
                 <li class="navbar-item">
@@ -136,7 +154,7 @@
     </nav>
 
     <div class="container px-auto" id="card_container">
-        <div class="row mb-4 mt-3" id="card_row">
+        <div class="row my-3" id="card_row">
             <div class="col-md-2"></div>
             <div class="col-md-2 px-1">
                 <div class="card">
@@ -174,7 +192,7 @@
             </div>
             <div class="col-md-2"></div>
         </div>
-        <div class="row">
+        <div class="row my-3">
 
             <div class="col-md-3 px-1">
                 <div class="card">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = new mysqli("localhost","root","","login_signup");
+$connection = new mysqli("sql112.infinityfree.com","if0_35516609", "0XdLRDzMW4Qgu", "if0_35516609_login_signup");
 
 if ($connection->connect_error){
     die("Connection failed: " .$connection->connect_error);
@@ -25,10 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $contact_num = $_POST['contact_num'];
         $password = $_POST['password2'];
 
-        $password_hash = password_hash($password, PASSWORD_DEFAULT);
-
         $query = "INSERT INTO users(firstname, middlename, lastname, house_num, street, barangay, municipality, city_province, zip_code, birthdate, contact_num, username, email, password)
-        values('$firstname', '$middlename', '$lastname', '$house_num', '$street', '$barangay', '$municipality', '$city_province', '$zip_code', '$birthdate', '$contact_num', '$username', '$email', '$password_hash')";
+        values('$firstname', '$middlename', '$lastname', '$house_num', '$street', '$barangay', '$municipality', '$city_province', '$zip_code', '$birthdate', '$contact_num', '$username', '$email', '$password')";
 
         $email_duplicate = "SELECT * FROM users WHERE email = '$email'";
         $result = $connection->query($email_duplicate);
