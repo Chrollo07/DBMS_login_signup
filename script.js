@@ -1,4 +1,11 @@
-
+function logincancel(){
+    alert("Log in cancelled.");
+    window.location.href = "index.html";
+}
+function signupcancel(){
+    alert("Sign up cancelled.");
+    window.location.href = "index.html";
+}
 function flip(cardId) {
     var flipCard = document.getElementById(cardId);
     flipCard.style.transform = flipCard.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
@@ -34,8 +41,6 @@ function validateSignup(){
     var birthdate = form.elements['birthdate'];
     var contact_num = form.elements['contact_num'];
 
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (username2.value.trim() === '' || 
     password2.value.trim() === ''|| 
     email.value.trim() === '' || 
@@ -52,20 +57,15 @@ function validateSignup(){
     {
         alert("Please fill in all fields.");
     }else{
-        if (!emailRegex.test(email.value.trim())){
-            alert("Invalid email. Please enter a valid email address.");
-        }else{
+        if (! /^\d{11}$/.test(contact_num.value.trim())){
+            alert("Contact number must only contain 11 digits (09xxxxxxxxx).")
+        }
+        else if (! /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+            alert("Email address must be in the format 'user@example.com'.")
+        }
+
+        else{
         form.submit();
         }
     }
-}
-
-function cancelLoginForm(){
-    alert("Log in cancelled.");
-    window.location.href = "index.html";
-}
-
-function cancelSignupForm(){
-    alert("Sign up cancelled.");
-    window.location.href = "index.html";
 }

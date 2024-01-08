@@ -120,7 +120,6 @@
     <title>Document</title>
 </head>
 <body>
-
 <?php
     session_start();
     if (!isset($_SESSION["authenticated"]) || $_SESSION["authenticated"] !== true) {
@@ -150,11 +149,11 @@
             <div class="col-md-2 px-1">
                 <div class="card">
                     <div class="profileImage">
-                        <img src="gallery/chrollo.jpg" alt="" id="img">
+                        <img src="gallery/chrolloo.jpg" alt="" id="img">
                     </div>
                     <div class="textContainer">
                         <p class="name">Jaym Ocampo</p>
-                        <p class="profile">Frontend Developer</p>
+                        <p class="profile">Frontend Developer I</p>
                     </div>
                 </div>
             </div>
@@ -177,7 +176,7 @@
                     </div>
                     <div class="textContainer">
                         <p class="name">Andrei Odosis</p>
-                        <p class="profile">PHP Developer</p>
+                        <p class="profile">Backend Developer II</p>
                     </div>
                 </div>
             </div>
@@ -192,7 +191,7 @@
                     </div>
                     <div class="textContainer">
                         <p class="name">Carlos Sadaya</p>
-                        <p class="profile">UI/UX Developer</p>
+                        <p class="profile">Frontend Developer II</p>
                     </div>
                 </div>
             </div>
@@ -203,7 +202,7 @@
                     </div>
                     <div class="textContainer">
                         <p class="name">Gemry Ken Lim</p>
-                        <p class="profile">Database Administrator </p>
+                        <p class="profile">Database Administrator I</p>
                     </div>
                 </div>
             </div>
@@ -211,11 +210,11 @@
             <div class="col-md-3 px-1">
                 <div class="card">
                     <div class="profileImage">
-                        <img src="gallery/denji.jpg" alt="" id="img">
+                        <img src="gallery/denjii.jpg" alt="" id="img">
                     </div>
                     <div class="textContainer">
                         <p class="name">Jacob Bongalonta</p>
-                        <p class="profile">Backend Developer II</p>
+                        <p class="profile">Database Administrator II</p>
                     </div>
                 </div>
             </div>
@@ -227,7 +226,7 @@
                     </div>
                     <div class="textContainer">
                         <p class="name">Aldrin Zamora</p>
-                        <p class="profile">Software Tester</p>
+                        <p class="profile">Backend Developer III</p>
                     </div>
                 </div>
             </div>
